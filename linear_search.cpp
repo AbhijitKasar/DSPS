@@ -1,46 +1,49 @@
-#include <iostream>
+/*
+Program Definition
+*/
+#include<iostream>
+
 using namespace std;
+int add;
+int i;
+int flag=0;
+int cnt=0;
+int linearsearch(int n,float target,float a[])
+{
 
-// Function to perform linear search
-int linearSearch(int arr[], int size, int key) {
-    for (int i = 0; i < size; i++) {
-        if (arr[i] == key) {
-            return i; // Return the index of the found element
+    for(int i=0;i<n;i++)
+    {
+       if(a[i]==target)
+       {
+           flag=1;
+           cout<<"\nTarget found at position:"<<i;
+           cnt++;
         }
-    }
-    return -1; // Return -1 if the element is not found
+    }       
+       if(flag==0)
+       {
+           cout<<"Element not found";
+       }
+       cout<<"\nNumber of times target element present: "<<cnt;
+       return 0;
 }
+   
 
-int main() {
-    int size;
 
-    // Accept the size of the array
-    cout << "Enter the size of the array: ";
-    cin >> size;
-
-    int arr[size];
-
-    // Accept the elements of the array
-    cout << "Enter " << size << " elements: ";
-    for (int i = 0; i < size; i++) {
-        cin >> arr[i];
+int main()
+{
+    int i;
+    int n;
+    float target;
+    float a[100];
+    cout<<"Enter the size of array:";
+    cin>>n;
+    cout<<"Enter the "<<n<<" array elements:";
+    for(int i=0;i<n;i++){
+    cin>>a[i];
     }
-
-    int key;
-
-    // Accept the key to be searched
-    cout << "Enter the element to search: ";
-    cin >> key;
-
-    // Perform the linear search
-    int result = linearSearch(arr, size, key);
-
-    // Display the result
-    if (result != -1) {
-        cout << "Element found at index " << result << endl;
-    } else {
-        cout << "Element not found" << endl;
-    }
-
+    cout<<"Enter the target element:";
+    cin>>target;
+    linearsearch(n,target,a);
     return 0;
 }
